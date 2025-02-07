@@ -8,6 +8,10 @@ import {
   TemplateDefinition,
   Substate,
   ListSubstatesResponse,
+  VaultData,
+  TransactionStatus,
+  SubstateMetadata,
+  SubstateRequirement,
 } from "./types";
 import { ProviderMethods, ProviderMethodNames, ProviderReturnType } from "./tari_universe/types";
 
@@ -23,6 +27,10 @@ export type {
   ProviderMethods,
   ProviderMethodNames,
   ProviderReturnType,
+  VaultData,
+  TransactionStatus,
+  SubstateMetadata,
+  SubstateRequirement,
 };
 
 export interface TariProvider {
