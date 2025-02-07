@@ -83,21 +83,10 @@ export class TariUniverseProvider implements TariProvider {
   }
 
   public async getAccount(): Promise<Account> {
-    const { account_id, address, public_key } = await this.sendRequest({ methodName: "getAccount", args: [] });
-    const { balances } = await this.getAccountBalances(address);
-
-    return {
-      account_id,
-      address,
-      public_key,
-      resources: balances.map((b: any) => ({
-        type: b.resource_type,
-        resource_address: b.resource_address,
-        balance: b.balance + b.confidential_balance,
-        vault_id: "Vault" in b.vault_address ? b.vault_address.Vault : b.vault_address,
-        token_symbol: b.token_symbol,
-      })),
-    };
+    return this.sendRequest({
+      methodName: "getAccount",
+      args: [],
+    });
   }
 
   public async getAccountBalances(componentAddress: string): Promise<AccountsGetBalancesResponse> {
